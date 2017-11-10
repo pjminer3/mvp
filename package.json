@@ -1,0 +1,38 @@
+{
+  "name": "hrsf83-mvp",
+  "version": "1.0.0",
+  "description": "Faces of Football",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.26.0",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "mongoose": "^4.13.1",
+    "react": "^16.1.0",
+    "react-dev": "0.0.1",
+    "react-dom": "^16.1.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "webpack": "^3.8.1"
+  },
+  "presets": [
+    "env"
+  ],
+  "scripts": {
+    "react-dev": "webpack -d --watch",
+    "server-dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pjminer3/hrsf83-mvp.git"
+  },
+  "author": "Patrick Miner",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pjminer3/hrsf83-mvp/issues"
+  },
+  "homepage": "https://github.com/pjminer3/hrsf83-mvp#readme"
+}

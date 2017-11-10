@@ -1,0 +1,8 @@
+- Webpack, packages.json, babel-cli, react-dev, dependencies & dev-dependencies (what is the difference?)...
+  How do we know what to download/use? When to use it? How to use it? When did we learn this stuff?
+  What is babel? Webpack? What do they do? Nodemon, deamons, what do all these things mean and how do we know when to use each?
+  "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",  <-- without looking at the documentation how would we be expected to know to download them?
+- 
