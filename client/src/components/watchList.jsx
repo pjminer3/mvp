@@ -12,7 +12,6 @@ class WatchList extends React.Component {
     return (
       <div id="watchList">
         <h4>MY WATCHLIST:</h4>
-        {}
       </div>
     )
   }

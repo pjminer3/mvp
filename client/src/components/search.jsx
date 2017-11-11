@@ -13,11 +13,11 @@ class Search extends React.Component {
       <div id="search">
         <div className="team">
           <h3>Search NFL Teams:</h3>
-          <input id="teamInput"/>
+          <input id="teamInput"/> <button id="teamButton">Submit</button>
         </div>
         <div className="player">
           <h3>Search NFL Players:</h3>
-          <input id="playerInput"/>
+          <input id="playerInput"/> <button id="playerButton">Submit</button>
         </div>
       </div>
     )

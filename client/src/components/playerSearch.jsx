@@ -1,5 +1,5 @@
 import React from 'react';
-import Crime from './components/crime.jsx';
+import Crime from './crime.jsx';
 
 class PlayerSearch extends React.Component {
   constructor (props) {
