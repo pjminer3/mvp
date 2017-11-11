@@ -5,4 +5,15 @@
     "babel-loader": "^6.3.2",
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-react": "^6.23.0",  <-- without looking at the documentation how would we be expected to know to download them?
-- 
+    AND LIKE THIS: npm install --save-dev babel-core babel-cli babel-loader babel-preset-es2015 babel-preset-react webpack html-webpack-plugin
+    AND LIKE THIS: touch .babelrc webpack-server
+
+- What exactly get's exported when exporting a React component?  Where does it go and how does it go to wait to be used?
+- app.use(express.static(__dirname + '/../client/dist')); <== Why does this fail when you add the file name? What if there was more than 1 html file in this directory?
+
+
+
+
+
+-------------------- THINGS I LOOKED BACK ON: --------------------------
+- Spinning up the server: 
