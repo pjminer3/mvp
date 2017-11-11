@@ -14,11 +14,15 @@ class App extends React.Component {
     }
   }
 
+  onClickSearch (event) {
+    console.log(event);
+  }
+
   // basic index html.  When somebody searches a name, the PlayerSearch component will render in the div w/ id playerSearch
   render() {
     return (
       <div>
-        <Search />
+        <Search onClickSearch={this.onClickSearch.bind(this)} />
         <br/>
         <div id="playerSearch"></div>
         <br/>

@@ -16,10 +16,10 @@ app.use(express.static(__dirname + '/../client/dist')); // Why does adding the f
 
 // -------------------- NEED TO RESEARCH THE ABOVE
 
-// app.get('/', (req, res) => {
-//   res.send();
-// })
-
 // app.listen(8080, () => {
 //   console.log('Example app listening on port 8080');
-// })
+// });
+
+app.post('/', (req, res) => {
+  res.send('Post was successful')
+})
