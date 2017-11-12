@@ -17,8 +17,16 @@ app.listen(port, () => {
   console.log('Listening on port 8080');
 });
 
-app.use(express.static(__dirname + '/../client/dist')); // Why does adding the file name ruin it?
+app.use(express.static(__dirname + '/../client/dist')); // This is the location of the static file we'll be serving
 app.use(bodyParser.json());
+
+
+// render the page when app receives a get request
+// app.get('/', (req, res) => {
+//   res.send('We are doing something');
+// })
+
+
 
 app.post('/', (req, res) => {
   console.log('Post was successful: ', req.body.player);
@@ -50,7 +58,7 @@ app.post('/', (req, res) => {
     }
 
   }).then( records => {
-    res.send(records);
+    res.send(JSON.parse(records));
   }).catch ( () => {
     console.log('There was an error with your request');
   })
