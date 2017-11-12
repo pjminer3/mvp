@@ -11,15 +11,31 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-
+      crimes: []
     }
   }
 
   onClickSearch (name) {
+    name = name.trim();
     name = name.split(' ').join('%20');
     console.log(name);
-    // NEED TO PRACTICE MAKING AJAX POST REQUESTS!
-    $.ajax('http://127.0.0.1:8080/', { method: 'POST', contentType: 'application/json', data: {player: JSON.stringify(name)}});
+    // -------------------- NEEDED HELP FOR THE BELOW - NEED TO PRACTICE MAKING AJAX POST REQUESTS!
+    $.ajax({ 
+      url: '/',
+      method: 'POST', 
+      contentType: 'application/json', 
+      data: JSON.stringify({"player": name}),
+      success: (data) => {
+        // console.log('This is the data: ', data);
+        this.setState({crimes: data});
+        console.log(this.state.crimes);
+      },
+      error: (err) => {
+        if (err) {
+          console.log('Error in post');
+        }
+      }
+    });
   }
 
   // basic index html.  When somebody searches a name, the PlayerSearch component will render in the div w/ id playerSearch
@@ -28,10 +44,7 @@ class App extends React.Component {
       <div>
         <Search onClickSearch={this.onClickSearch.bind(this)} />
         <br/>
-        <div id="playerSearch"></div>
-        <br/>
         <WatchList />
-        
       </div>
     )
   }

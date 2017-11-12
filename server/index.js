@@ -2,6 +2,10 @@ const http = require('http');
 const fs = require('fs');
 const express = require('express');
 const bodyParser = require('body-parser');
+const nflHelpers = require('./../apiHelpers/nflarrests.js');
+const request = require('request');
+const db = require('./../database/index.js');
+const rp = require('request-promise');
 
 const app = express();
 
@@ -16,13 +20,44 @@ app.listen(port, () => {
 app.use(express.static(__dirname + '/../client/dist')); // Why does adding the file name ruin it?
 app.use(bodyParser.json());
 
-// -------------------- NEED TO RESEARCH THE ABOVE
-
-// app.listen(8080, () => {
-//   console.log('Example app listening on port 8080');
-// });
-
 app.post('/', (req, res) => {
   console.log('Post was successful: ', req.body.player);
-  res.send('Post was successful')
-})
+
+  let endpoint = nflHelpers.generateEndpoint(req.body.player).trim();
+  console.log('Endpoint: ', endpoint);
+
+  rp(endpoint, (err, res, body) => {
+    if (err) {
+      console.log("There was an error in your request.");
+    }
+
+    let records = body;
+
+    // ------------------------ UNCOMMENT THIS TO ADD TO DATABASE -----------------------------
+    // save the api records to the database
+    // if (records.length > 0) {
+    //   console.log('-------------- SAVED RECORDS ----------------');
+    //   console.log(records);
+    //   // db.save(records);
+    // } else {
+    //   throw err;
+    // }
+
+    // render api arrest records on page
+    if (records.length > 0) {
+      console.log('-------- THE RECORDS BEING SENT BACK TO CLIENT TO BE RENDERED ---------------');
+      return records;
+    }
+
+  }).then( records => {
+    res.send(records);
+  }).catch ( () => {
+    console.log('There was an error with your request');
+  })
+
+
+  // res.send('Post was successful');
+});
+
+
+// -------------------- NEED TO RESEARCH THE ABOVE

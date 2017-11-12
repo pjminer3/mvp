@@ -41,11 +41,14 @@ const save = (dataArray) => {
     crimeInst.category = crime.Category;
     crimeInst.description = crime.Description;
     crimeInst.outcome = crime.Outcome;
+
+    // return the crime object to be added to the player database
     return crimeInst;
   });
 
   player.crimes = crimeArray;
   console.log(player);
+  // creates and saves the new player model in the database
   player = new Player(player);
   player.save();
   return player;

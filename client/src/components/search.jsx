@@ -18,10 +18,10 @@ class Search extends React.Component {
   render () {
     return (
       <div id="search">
-        <div className="team">
+        {/*<div className="team">
           <h3>Search NFL Teams:</h3>
           <input id="teamInput" /> <button id="teamButton" >Submit</button>
-        </div>
+        </div>*/}
         <div className="player">
           <h3>Search NFL Players:</h3>
           <input id="playerInput" onChange={this.handleChange} /> <button id="playerButton" onClick={(e) => {this.props.onClickSearch(this.state.value)}}>Submit</button>

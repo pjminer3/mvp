@@ -10,10 +10,7 @@
 
 - What exactly get's exported when exporting a React component?  Where does it go and how does it go to wait to be used?
 - app.use(express.static(__dirname + '/../client/dist')); <== Why does this fail when you add the file name? What if there was more than 1 html file in this directory?
+- How do I get data back from the server to the client without accessing the database?
 
 
 
-
-
--------------------- THINGS I LOOKED BACK ON: --------------------------
-- Spinning up the server: 
