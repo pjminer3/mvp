@@ -15,8 +15,21 @@ class App extends React.Component {
     }
   }
 
+  // function for adding users and user data to our watchlist (database)
   onClickAddList (/*takes data from this.state.crimes*/) {
-    console.log('I clicked!');
+    console.log('-- LETS TRY TO POST TO A NEW ROUTE --');
+    $.ajax({
+      url: '/watchlist',
+      method: 'POST',
+      contentType: 'application/json',
+      data: JSON.stringify(this.state), // will send to the server "{crimes: [**data**]}"
+      success: (data) => {
+        console.log("We posted to /watchlist  correctly");
+      },
+      error: (err) => {
+        console.log('There was an error with this post request');
+      }
+    })
   }
 
   onClickSearch (name) {
