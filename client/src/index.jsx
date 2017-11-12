@@ -44,7 +44,7 @@ class App extends React.Component {
       <div>
         <Search onClickSearch={this.onClickSearch.bind(this)} />
         <br/>
-        <WatchList />
+        <WatchList arrestRecord={this.state.crimes} />
       </div>
     )
   }

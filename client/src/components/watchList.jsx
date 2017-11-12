@@ -1,4 +1,5 @@
 import React from 'react';
+import Player from './player.jsx';
 
 class WatchList extends React.Component {
   constructor(props) {
@@ -9,9 +10,11 @@ class WatchList extends React.Component {
   }
 
   render () {
+    console.log('WE ARE IN HERE: WatchList');
     return (
       <div id="watchList">
         <h4>MY WATCHLIST:</h4>
+        <Player arrestRecords={this.props.arrestRecord} />
       </div>
     )
   }
