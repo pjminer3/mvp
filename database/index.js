@@ -32,6 +32,7 @@ const save = (dataArray) => {
   let player = {};
   player.name = dataArray[0].Name;
   player.team = dataArray[0].Team_preffered_name;
+  player.position = dataArray[0].Position_name;
 
 // creates an object, an array of crimes
   let crimeArray = dataArray.map(crime => {

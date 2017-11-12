@@ -15,6 +15,10 @@ class App extends React.Component {
     }
   }
 
+  onClickAddList (/*takes data from this.state.crimes*/) {
+    console.log('I clicked!');
+  }
+
   onClickSearch (name) {
     name = name.trim();
     name = name.split(' ').join('%20');
@@ -44,7 +48,7 @@ class App extends React.Component {
       <div>
         <Search onClickSearch={this.onClickSearch.bind(this)} />
         <br/>
-        <WatchList arrestRecord={this.state.crimes} />
+        <WatchList arrestRecord={this.state.crimes} onClickAddList={this.onClickAddList.bind(this)} />
       </div>
     )
   }

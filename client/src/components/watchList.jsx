@@ -10,11 +10,10 @@ class WatchList extends React.Component {
   }
 
   render () {
-    console.log('WE ARE IN HERE: WatchList');
     return (
       <div id="watchList">
         <h4>MY WATCHLIST:</h4>
-        <Player arrestRecords={this.props.arrestRecord} />
+        {this.props.arrestRecord.length == 0 ? <h5>Add Player to Watchlist</h5> : <Player arrestRecords={this.props.arrestRecord} onClickAddList={this.props.onClickAddList} />}
       </div>
     )
   }
