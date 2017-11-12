@@ -11,8 +11,15 @@ class App extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      crimes: []
+      crimes: [],
+      watchlist: [],
+      searchValue: ''
     }
+  }
+
+  // resets the searchValue everytime a key is pressed in the search bar, so we have constant control over it
+  handleChange (event) {
+    this.setState({searchValue: event.target.value})
   }
 
   // function for adding users and user data to our watchlist (database)
@@ -24,7 +31,8 @@ class App extends React.Component {
       contentType: 'application/json',
       data: JSON.stringify(this.state), // will send to the server "{crimes: [**data**]}"
       success: (data) => {
-        console.log("We posted to /watchlist  correctly");
+        console.log("We posted to /watchlist  correctly: ", data);
+        this.setState({crimes: []});
       },
       error: (err) => {
         console.log('There was an error with this post request');
@@ -46,6 +54,7 @@ class App extends React.Component {
         // console.log('This is the data: ', data);
         this.setState({crimes: data});
         console.log(this.state.crimes);
+        this.setState({searchValue: ''}); // <--------------------- WHY WON'T THIS WORK? Need to change the value of the input to nothing
       },
       error: (err) => {
         if (err) {
@@ -59,7 +68,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <Search onClickSearch={this.onClickSearch.bind(this)} />
+        <Search onClickSearch={this.onClickSearch.bind(this)} searchValue={this.state.searchValue} handleChange={this.handleChange.bind(this)} />
         <br/>
         <WatchList arrestRecord={this.state.crimes} onClickAddList={this.onClickAddList.bind(this)} />
       </div>

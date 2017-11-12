@@ -4,16 +4,9 @@ class Search extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value:''
     }
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
-  // use the below to change the state with every single key press, so that I can search the state when I need to!
-  handleChange (event) {
-    this.setState({value: event.target.value})
-  }
 
   render () {
     return (
@@ -24,7 +17,7 @@ class Search extends React.Component {
         </div>*/}
         <div className="player">
           <h3>Search NFL Players:</h3>
-          <input id="playerInput" onChange={this.handleChange} /> <button id="playerButton" onClick={(e) => {this.props.onClickSearch(this.state.value)}}>Submit</button>
+          <input id="playerInput" onChange={(e) => {this.props.handleChange(e)}} /> <button id="playerButton" onClick={(e) => {this.props.onClickSearch(this.props.searchValue)}}>Submit</button>
         </div>
       </div>
     )

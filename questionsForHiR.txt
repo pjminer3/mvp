@@ -17,5 +17,7 @@ EXPLICIT QUESTIONS FOR KIRK
 - How does it know to render file without GET request specifications? Also, why don't we have to specificy the exact file name with express.static
 - 
 
+- MIDDLEWARE: What is it? How do we use it? When do we know to use it? What benefits can it provide?
+
 
 

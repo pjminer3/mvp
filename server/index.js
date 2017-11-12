@@ -20,6 +20,7 @@ app.listen(port, () => {
 app.use(express.static(__dirname + '/../client/dist')); // This is the location of the static file we'll be serving
 app.use(bodyParser.json());
 
+
 // function for adding players to your watchlist
 app.post('/watchlist', (req, res) => {
   // req.body.crimes => the array of objects of each crime
@@ -31,6 +32,11 @@ app.post('/watchlist', (req, res) => {
   res.send(201, {player: addedPlayer});
 });
 
+//---------------------------------------COME BACK TO THIS
+// function for, when rendering index homepage, grabs all football players from your watchlist
+// app.get('/', (req, res) => {
+
+// })
 
 
 
