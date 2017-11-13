@@ -34,7 +34,7 @@ app.post('/watchlist', (req, res) => {
 
 
 // function for, when rendering index homepage, grabs all football players from your watchlist
-app.get('/', (req, res) => {
+app.get('/refresh', (req, res) => {
   console.log('We are inside the "/" get request');
   db.Player.find({}, function(err, players) {
     if (err) {

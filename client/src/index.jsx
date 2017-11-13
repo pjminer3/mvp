@@ -21,11 +21,13 @@ class App extends React.Component {
   // the below should be triggered right away
   componentDidMount() {
     $.ajax({
-      url: '/',
+      url: '/refresh',
       method: 'GET',
       contentType: 'application/json',
       success: (data) => {
         console.log('Loading GET request was a success: ', data);
+        this.setState({watchlist: data});
+        console.log('This is the watchlist state: ', this.state.watchlist);
       },
       error: (data) => {
         console.log('There was an error: ', data);
