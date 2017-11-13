@@ -12,8 +12,8 @@ class WatchList extends React.Component {
   render () {
     return (
       <div id="watchList">
-        <h4>MY WATCHLIST:</h4>
-        {this.props.arrestRecord.length == 0 ? <h5>Add Player to Watchlist</h5> : <Player arrestRecords={this.props.arrestRecord} onClickAddList={this.props.onClickAddList} />}
+        <h3>Search Results:</h3>
+        {this.props.arrestRecord.length == 0 ? <h3 className="addPlayer">Add Player to Watchlist</h3> : <Player arrestRecords={this.props.arrestRecord} onClickAddList={this.props.onClickAddList} />}
       </div>
     )
   }
