@@ -17,6 +17,22 @@ class App extends React.Component {
     }
   }
 
+  // run initial get requests to get data from the database
+  // the below should be triggered right away
+  componentDidMount() {
+    $.ajax({
+      url: '/',
+      method: 'GET',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('Loading GET request was a success: ', data);
+      },
+      error: (data) => {
+        console.log('There was an error: ', data);
+      }
+    })
+  }
+
   // resets the searchValue everytime a key is pressed in the search bar, so we have constant control over it
   handleChange (event) {
     this.setState({searchValue: event.target.value})
@@ -32,7 +48,14 @@ class App extends React.Component {
       data: JSON.stringify(this.state), // will send to the server "{crimes: [**data**]}"
       success: (data) => {
         console.log("We posted to /watchlist  correctly: ", data);
+        // change state of watchlist by adding new db object to it
+        let newWatchlist = this.state.watchlist
+        newWatchlist.push(data.player);
+        this.setState({watchlist: newWatchlist});
+        
+        // change state of crimes so we're back to a clean slate in the search
         this.setState({crimes: []});
+        console.log('this is the new watchlist: ', this.state.watchlist);
       },
       error: (err) => {
         console.log('There was an error with this post request');

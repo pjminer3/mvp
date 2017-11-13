@@ -32,11 +32,19 @@ app.post('/watchlist', (req, res) => {
   res.send(201, {player: addedPlayer});
 });
 
-//---------------------------------------COME BACK TO THIS
-// function for, when rendering index homepage, grabs all football players from your watchlist
-// app.get('/', (req, res) => {
 
-// })
+// function for, when rendering index homepage, grabs all football players from your watchlist
+app.get('/', (req, res) => {
+  console.log('We are inside the "/" get request');
+  db.Player.find({}, function(err, players) {
+    if (err) {
+      console.log("There was an error in querying DB");
+    } else {
+      console.log('The refresh DB query was a success!');
+      res.send(200, players);
+    }
+  });
+});
 
 
 
