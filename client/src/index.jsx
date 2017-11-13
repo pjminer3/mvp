@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Search from './components/search.jsx';
 import WatchList from './components/watchList.jsx';
 import PlayerSearch from './components/playerSearch.jsx';
+import RealWatchlist from './components/realWatchlist.jsx';
 import $ from 'jquery';
 
 
@@ -93,7 +94,10 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        <img src="https://www.programmableweb.com/sites/default/files/styles/article_profile_150x150/public/nflarrest.png?itok=eFZuj7WB" alt="FootballArrests"/>
         <Search onClickSearch={this.onClickSearch.bind(this)} searchValue={this.state.searchValue} handleChange={this.handleChange.bind(this)} />
+        <RealWatchlist watchlist={this.state.watchlist} />
+        <br/>
         <br/>
         <WatchList arrestRecord={this.state.crimes} onClickAddList={this.onClickAddList.bind(this)} />
       </div>
